@@ -1,6 +1,6 @@
 package frc.team5115.auto;
 
-import frc.team5115.Konstanten;
+import frc.team5115.Constants;
 import frc.team5115.PID;
 import frc.team5115.robot.Robot;
 import frc.team5115.auto.AutoDrive;
@@ -60,7 +60,7 @@ public class SwitchAutoSide extends StateMachineBase {
 		SmartDashboard.putNumber("stateNumber ", state);
 		switch(state){
 		case INIT:
-			Robot.EM.setTarget(Konstanten.SWITCH_HEIGHT);
+			Robot.EM.setTarget(Constants.SWITCH_HEIGHT);
 			Robot.EM.setState(ElevatorManager.MOVING_TO);
 			Robot.IM.setState(IntakeManager.STOW_CLOSED);
 			Robot.CM.setState(CarriageManager.GRAB);
@@ -141,7 +141,7 @@ public class SwitchAutoSide extends StateMachineBase {
 			Robot.drivetrain.drive(0, 0);
 			Robot.CM.setState(CarriageManager.DUMP);
 			updateChildren();
-			if(Timer.getFPGATimestamp() > time + Konstanten.SPIT_DELAY){
+			if(Timer.getFPGATimestamp() > time + Constants.SPIT_DELAY){
 				setState(FINISHED);
 			}
 			break;

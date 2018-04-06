@@ -1,6 +1,6 @@
 package frc.team5115.auto;
 
-import frc.team5115.Konstanten;
+import frc.team5115.Constants;
 import frc.team5115.PID;
 import frc.team5115.robot.Robot;
 import frc.team5115.auto.AutoDrive;
@@ -51,7 +51,7 @@ public class DropCubeAuto extends StateMachineBase {
 		case INIT:
 			if (position == RIGHT) {
 				drive.startLine(9, 0.125);
-				Robot.EM.setTarget(Konstanten.SWITCH_HEIGHT);
+				Robot.EM.setTarget(Constants.SWITCH_HEIGHT);
 				Robot.EM.setState(ElevatorManager.MOVING_TO);
 			}
 			else {
@@ -91,7 +91,7 @@ public class DropCubeAuto extends StateMachineBase {
 			drive.update();
 			if (drive.state == AutoDrive.FINISHED) {
 				drive.startLine(5.08, .25);
-				Robot.EM.setTarget(Konstanten.SWITCH_HEIGHT);
+				Robot.EM.setTarget(Constants.SWITCH_HEIGHT);
 				Robot.EM.setState(ElevatorManager.MOVING_TO);
 				setState(DRIVING2);
 			}
@@ -115,7 +115,7 @@ public class DropCubeAuto extends StateMachineBase {
 		case PLACE:
 			Robot.CM.update();
 			Robot.EM.update();
-			if(Timer.getFPGATimestamp() > time + Konstanten.SPIT_DELAY)
+			if(Timer.getFPGATimestamp() > time + Constants.SPIT_DELAY)
 				setState(FINISHED);
 			break;
 		case FINISHED:

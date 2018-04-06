@@ -1,6 +1,6 @@
 package frc.team5115.systems;
 
-import frc.team5115.Konstanten;
+import frc.team5115.Constants;
 
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -18,14 +18,14 @@ public class Intake {
 	Spark intakeWheelsLeft;
 	Spark intakeWheelsRight;
 	public Intake(){
-		cubeDetectorL = new DigitalInput(Konstanten.CUBE_DETECTOR_L);
-		cubeDetectorR = new DigitalInput(Konstanten.CUBE_DETECTOR_R);
-		cubeSolenoidLeft = new DoubleSolenoid(Konstanten.PHEUMATIC_PCM_0_ID, Konstanten.INTAKE_FORWARD_CHANNEL_LEFT, Konstanten.INTAKE_REVERSE_CHANNEL_LEFT);
-		cubeSolenoidRight = new DoubleSolenoid(Konstanten.PHEUMATIC_PCM_0_ID, Konstanten.INTAKE_FORWARD_CHANNEL_RIGHT, Konstanten.INTAKE_REVERSE_CHANNEL_RIGHT);
-		intakeLifterLeft = new DoubleSolenoid(Konstanten.PHEUMATIC_PCM_0_ID, Konstanten.LIFTER_FORWARD_CHANNEL_LEFT, Konstanten.LIFTER_REVERSE_CHANNEL_LEFT);
-		intakeLifterRight = new DoubleSolenoid(Konstanten.PHEUMATIC_PCM_0_ID, Konstanten.LIFTER_FORWARD_CHANNEL_RIGHT, Konstanten.LIFTER_REVERSE_CHANNEL_RIGHT);
-		intakeWheelsLeft = new Spark(Konstanten.INTAKE_SPARK_LEFT);
-		intakeWheelsRight = new Spark(Konstanten.INTAKE_SPARK_RIGHT);
+		cubeDetectorL = new DigitalInput(Constants.CUBE_DETECTOR_L);
+		cubeDetectorR = new DigitalInput(Constants.CUBE_DETECTOR_R);
+		cubeSolenoidLeft = new DoubleSolenoid(Constants.PHEUMATIC_PCM_0_ID, Constants.INTAKE_FORWARD_CHANNEL_LEFT, Constants.INTAKE_REVERSE_CHANNEL_LEFT);
+		cubeSolenoidRight = new DoubleSolenoid(Constants.PHEUMATIC_PCM_0_ID, Constants.INTAKE_FORWARD_CHANNEL_RIGHT, Constants.INTAKE_REVERSE_CHANNEL_RIGHT);
+		intakeLifterLeft = new DoubleSolenoid(Constants.PHEUMATIC_PCM_0_ID, Constants.LIFTER_FORWARD_CHANNEL_LEFT, Constants.LIFTER_REVERSE_CHANNEL_LEFT);
+		intakeLifterRight = new DoubleSolenoid(Constants.PHEUMATIC_PCM_0_ID, Constants.LIFTER_FORWARD_CHANNEL_RIGHT, Constants.LIFTER_REVERSE_CHANNEL_RIGHT);
+		intakeWheelsLeft = new Spark(Constants.INTAKE_SPARK_LEFT);
+		intakeWheelsRight = new Spark(Constants.INTAKE_SPARK_RIGHT);
 	}
 	
 	public void grip(){

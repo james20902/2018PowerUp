@@ -1,6 +1,6 @@
 package frc.team5115.auto;
 
-import frc.team5115.Konstanten;
+import frc.team5115.Constants;
 import frc.team5115.PID;
 import frc.team5115.robot.Robot;
 import frc.team5115.statemachines.StateMachineBase;
@@ -30,8 +30,8 @@ public class AutoDrive extends StateMachineBase {
         targetDist = Robot.drivetrain.distanceTraveled() + dist;
         targetAngle = Robot.drivetrain.getYaw();
 
-        forwardController = new PID(Konstanten.AUTO_FORWARD_KP, Konstanten.AUTO_FORWARD_KI, Konstanten.AUTO_FORWARD_KD ,maxSpeed);
-        turnController = new PID(Konstanten.AUTO_TURN_KP, Konstanten.AUTO_TURN_KI ,Konstanten.AUTO_TURN_KD);
+        forwardController = new PID(Constants.AUTO_FORWARD_KP, Constants.AUTO_FORWARD_KI, Constants.AUTO_FORWARD_KD ,maxSpeed);
+        turnController = new PID(Constants.AUTO_TURN_KP, Constants.AUTO_TURN_KI ,Constants.AUTO_TURN_KD);
 
         setState(DRIVING);
     }
@@ -41,8 +41,8 @@ public class AutoDrive extends StateMachineBase {
         targetDist = Robot.drivetrain.distanceTraveled();
         targetAngle = Robot.drivetrain.getYaw() + (angle);
 
-        forwardController = new PID(Konstanten.AUTO_FORWARD_KP, Konstanten.AUTO_FORWARD_KI, Konstanten.AUTO_FORWARD_KD);
-        turnController = new PID(Konstanten.TURN_KP, Konstanten.TURN_KI ,Konstanten.AUTO_TURN_KD, maxSpeed);
+        forwardController = new PID(Constants.AUTO_FORWARD_KP, Constants.AUTO_FORWARD_KI, Constants.AUTO_FORWARD_KD);
+        turnController = new PID(Constants.TURN_KP, Constants.TURN_KI ,Constants.AUTO_TURN_KD, maxSpeed);
 
         setState(DRIVING);
     }
@@ -60,7 +60,7 @@ public class AutoDrive extends StateMachineBase {
                 double clearYaw = clearSteer(Robot.drivetrain.getYaw(), targetAngle);
                 double vTurn = turnController.getPID(targetAngle, clearYaw, Robot.drivetrain.getTurnVelocity());
 
-                if (!line && Math.abs(turnController.getError()) > 4 * Konstanten.TURN_TOLERANCE) {
+                if (!line && Math.abs(turnController.getError()) > 4 * Constants.TURN_TOLERANCE) {
                     vTurn += 0.15 * Math.signum(vTurn);
                 }
 
@@ -68,7 +68,7 @@ public class AutoDrive extends StateMachineBase {
                 Robot.drivetrain.drive(vForward, vTurn);
 
                 // if both controllers are finished, finish
-                if (forwardController.isFinished(Konstanten.FORWARD_TOLERANCE, Konstanten.FORWARD_DTOLERANCE) && turnController.isFinished(Konstanten.TURN_TOLERANCE, Konstanten.TURN_DTOLERANCE)) {
+                if (forwardController.isFinished(Constants.FORWARD_TOLERANCE, Constants.FORWARD_DTOLERANCE) && turnController.isFinished(Constants.TURN_TOLERANCE, Constants.TURN_DTOLERANCE)) {
                     Robot.drivetrain.drive(0, 0);
                     setState(FINISHED);
                 }

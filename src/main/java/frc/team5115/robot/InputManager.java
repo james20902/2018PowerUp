@@ -1,6 +1,6 @@
 package frc.team5115.robot;
 
-import frc.team5115.Konstanten;
+import frc.team5115.Constants;
 
 import edu.wpi.first.wpilibj.Joystick;
 
@@ -17,11 +17,11 @@ public class InputManager {
 
     //The following methods deal with the basic driving functionalities
     public static double getForward() {
-        return -treatAxis(joy.getRawAxis(Konstanten.AXIS_Y));
+        return -treatAxis(joy.getRawAxis(Constants.AXIS_Y));
     }
 
     public static double getTurn() {
-        return joy.getRawAxis(Konstanten.AXIS_X);
+        return joy.getRawAxis(Constants.AXIS_X);
     }
 
     //These methods are controlled by the nub on the top of the joystick
@@ -31,17 +31,17 @@ public class InputManager {
 
     public static double getThrottle() {
         // Joystick give 1 to -1 but we need 0 to 1
-        return (1 - joy.getRawAxis(Konstanten.AXIS_THROTTLE)) / 2;
+        return (1 - joy.getRawAxis(Constants.AXIS_THROTTLE)) / 2;
     }
 
     // Handles expo and deadband
     public static double treatAxis(double val) {
-        if (Math.abs(val) < Konstanten.JOYSTICK_DEADBAND) {
+        if (Math.abs(val) < Constants.JOYSTICK_DEADBAND) {
             val = 0;
         }
         else {
             double sign = (Math.signum(val));
-            val = Math.pow(Math.abs(val), Konstanten.JOYSTICK_EXPO);
+            val = Math.pow(Math.abs(val), Constants.JOYSTICK_EXPO);
 
             if(sign != Math.signum(val)){
                 val *= sign;
@@ -52,7 +52,7 @@ public class InputManager {
     }
 
     public static boolean kill(){
-        return joy.getRawButton(Konstanten.KILL);
+        return joy.getRawButton(Constants.KILL);
     }
 
     public static boolean switchHeight(){
@@ -67,31 +67,31 @@ public class InputManager {
     }
 
     public static boolean intake(){
-        return joy.getRawButton(Konstanten.INTAKE);
+        return joy.getRawButton(Constants.INTAKE);
     }
 
     public static boolean eject(){
-        return joy.getRawButton(Konstanten.EJECT);
+        return joy.getRawButton(Constants.EJECT);
     }
 
     public static boolean moveUp(){
-        return joy.getRawButton(Konstanten.UP);
+        return joy.getRawButton(Constants.UP);
     }
 
     public static boolean moveDown(){
-        return joy.getRawButton(Konstanten.DOWN);
+        return joy.getRawButton(Constants.DOWN);
     }
 
     public static boolean spit(){
-        return joy.getRawButton(Konstanten.SPIT);
+        return joy.getRawButton(Constants.SPIT);
     }
 
     public static boolean grabIntake(){
-        return joy.getRawButton(Konstanten.GRAB_INTAKE);
+        return joy.getRawButton(Constants.GRAB_INTAKE);
     }
 
     public static boolean bump(){
-        return joy.getRawButton(Konstanten.CORRECTCUBE);
+        return joy.getRawButton(Constants.CORRECTCUBE);
     }
 
     public static boolean getButton(int b) {

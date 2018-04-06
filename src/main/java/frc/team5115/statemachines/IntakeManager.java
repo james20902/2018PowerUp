@@ -1,7 +1,7 @@
 package frc.team5115.statemachines;
 
 //import com.cruzsbrian.robolog.Constants;
-import frc.team5115.Konstanten;
+import frc.team5115.Constants;
 import frc.team5115.PID;
 import frc.team5115.robot.InputManager;
 import frc.team5115.robot.Robot;
@@ -30,7 +30,7 @@ public class IntakeManager extends StateMachineBase {
                 break;
             case INTAKE:
                 Robot.intake.relax();
-                Robot.intake.intake(Konstanten.INTAKE_SPEED);
+                Robot.intake.intake(Constants.INTAKE_SPEED);
                 Robot.intake.lowerIntake();
                 break;
             case CORRECT:
@@ -40,7 +40,7 @@ public class IntakeManager extends StateMachineBase {
                 break;
             case SPIT:
                 Robot.intake.relax();
-                Robot.intake.intake(Konstanten.SPIT_SPEED);
+                Robot.intake.intake(Constants.SPIT_SPEED);
                 break;
             case GRIP_DOWN:
                 Robot.intake.grip();
@@ -65,7 +65,7 @@ public class IntakeManager extends StateMachineBase {
             case OPEN_DOWN:
                 Robot.intake.lowerIntake();
                 Robot.intake.release();
-                Robot.intake.intake(Konstanten.INTAKE_SPEED);
+                Robot.intake.intake(Constants.INTAKE_SPEED);
         }
     }
 

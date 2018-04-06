@@ -1,6 +1,6 @@
 package frc.team5115.auto;
 
-import frc.team5115.Konstanten;
+import frc.team5115.Constants;
 import frc.team5115.PID;
 import frc.team5115.robot.Robot;
 import frc.team5115.statemachines.StateMachineBase;
@@ -38,8 +38,8 @@ public class LinePlusTurn extends StateMachineBase {
         startAngle = Robot.drivetrain.getYaw();
 
         //Change back to our constants, this one doesn't work
-        forwardController = new PID(Konstanten.AUTO_FORWARD_KP, Konstanten.AUTO_FORWARD_KI, Konstanten.AUTO_FORWARD_KD ,maxForwardSpeed);
-        turnController = new PID(Konstanten.TURN_KP, Konstanten.TURN_KI ,Konstanten.AUTO_TURN_KD, maxTurnSpeed);
+        forwardController = new PID(Constants.AUTO_FORWARD_KP, Constants.AUTO_FORWARD_KI, Constants.AUTO_FORWARD_KD ,maxForwardSpeed);
+        turnController = new PID(Constants.TURN_KP, Constants.TURN_KI ,Constants.AUTO_TURN_KD, maxTurnSpeed);
         setState(DRIVING);
     }
 
@@ -56,7 +56,7 @@ public class LinePlusTurn extends StateMachineBase {
                 double clearYaw = clearSteer(Robot.drivetrain.getYaw(), targetAngle);
                 double vTurn = turnController.getPID(targetAngle, clearYaw, Robot.drivetrain.getTurnVelocity());
 
-                if (!line && Math.abs(turnController.getError()) > 4 * Konstanten.TURN_TOLERANCE) {
+                if (!line && Math.abs(turnController.getError()) > 4 * Constants.TURN_TOLERANCE) {
                     vTurn += 0.15 * Math.signum(vTurn);
                 }
 
@@ -66,7 +66,7 @@ public class LinePlusTurn extends StateMachineBase {
 
                 Robot.drivetrain.drive(vForward, vTurn);
 
-                if (forwardController.isFinished(Konstanten.FORWARD_TOLERANCE, Konstanten.FORWARD_DTOLERANCE) && turnController.isFinished(Konstanten.TURN_TOLERANCE, Konstanten.TURN_DTOLERANCE)) {
+                if (forwardController.isFinished(Constants.FORWARD_TOLERANCE, Constants.FORWARD_DTOLERANCE) && turnController.isFinished(Constants.TURN_TOLERANCE, Constants.TURN_DTOLERANCE)) {
                     Robot.drivetrain.drive(0, 0);
                     setState(FINISHED);
                 }

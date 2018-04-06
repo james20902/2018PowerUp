@@ -5,7 +5,7 @@ package frc.team5115.systems;
    import com.ctre.phoenix.motorcontrol.can.TalonSRX;
  */
 import com.kauailabs.navx.frc.AHRS;
-import frc.team5115.Konstanten;
+import frc.team5115.Constants;
 
 import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.SPI;
@@ -17,7 +17,7 @@ public class Carriage {
 
 
     public Carriage(){
-        grabberSolenoid = new DoubleSolenoid(Konstanten.PHEUMATIC_PCM_1_ID, Konstanten.CARRIAGE_FORWARD_CHANNEL, Konstanten.CARRIAGE_REVERSE_CHANNEL);
+        grabberSolenoid = new DoubleSolenoid(Constants.PHEUMATIC_PCM_1_ID, Constants.CARRIAGE_FORWARD_CHANNEL, Constants.CARRIAGE_REVERSE_CHANNEL);
     }
 
     public void grab(){

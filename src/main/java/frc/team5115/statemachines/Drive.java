@@ -1,6 +1,6 @@
 package frc.team5115.statemachines;
 
-import frc.team5115.Konstanten;
+import frc.team5115.Constants;
 
 import frc.team5115.PID;
 import frc.team5115.robot.InputManager;
@@ -24,13 +24,13 @@ public class Drive extends StateMachineBase {
                 // however, a hybrid mode (say, forward/backward given by drivers, turning given by vision) could be really useful
                 // a hybrid mode is probably best implemented as another state in this class
                 if (!Robot.drivetrain.inuse) {
-                    double forwardSpeed = InputManager.getForward() * InputManager.getThrottle() * Konstanten.TOP_SPEED;
-                    double turnSpeed = InputManager.getTurn() * InputManager.getThrottle() * Konstanten.TOP_TURN_SPEED;
+                    double forwardSpeed = InputManager.getForward() * InputManager.getThrottle() * Constants.TOP_SPEED;
+                    double turnSpeed = InputManager.getTurn() * InputManager.getThrottle() * Constants.TOP_TURN_SPEED;
 
                     Robot.drivetrain.drive(forwardSpeed, turnSpeed);
 
                     // if tipping to far back and accelerating forward too fast, take over to avoid falling
-                    if ((Robot.drivetrain.getPitch() < Konstanten.TIP_THRESHOLD) && (Robot.drivetrain.forwarAccel() > Konstanten.ACCEL_THRESHOLD)){
+                    if ((Robot.drivetrain.getPitch() < Constants.TIP_THRESHOLD) && (Robot.drivetrain.forwarAccel() > Constants.ACCEL_THRESHOLD)){
                         Robot.drivetrain.inuse = true;
                         setState(TIPPING);
                     }
@@ -38,10 +38,10 @@ public class Drive extends StateMachineBase {
                 break;
 
             case TIPPING:
-                double power = -(Robot.drivetrain.getPitch() / Konstanten.TIP_THRESHOLD);
+                double power = -(Robot.drivetrain.getPitch() / Constants.TIP_THRESHOLD);
                 Robot.drivetrain.drive(-power, 0);
 
-                if (Robot.drivetrain.getPitch() > Konstanten.SAFE_ANGLE){
+                if (Robot.drivetrain.getPitch() > Constants.SAFE_ANGLE){
                     Robot.drivetrain.inuse = false;
                     setState(DRIVING);
                 }

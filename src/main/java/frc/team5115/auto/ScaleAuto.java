@@ -1,6 +1,6 @@
 package frc.team5115.auto;
 
-import frc.team5115.Konstanten;
+import frc.team5115.Constants;
 import frc.team5115.PID;
 import frc.team5115.robot.Robot;
 import frc.team5115.auto.AutoDrive;
@@ -52,7 +52,7 @@ public class ScaleAuto extends StateMachineBase {
 			drive.startLine(19, 0.75); //distance that is going to be required every time
 			Robot.CM.setState(CarriageManager.GRAB);
 			Robot.IM.setState(IntakeManager.STOW_OPEN);
-			Robot.EM.setTarget(Konstanten.SCALE_HEIGHT);
+			Robot.EM.setTarget(Constants.SCALE_HEIGHT);
 			Robot.EM.setState(ElevatorManager.MOVING_TO);
 			setState(DRIVING);
 			break;

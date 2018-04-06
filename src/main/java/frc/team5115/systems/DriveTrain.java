@@ -4,7 +4,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.kauailabs.navx.frc.AHRS;
-import frc.team5115.Konstanten;
+import frc.team5115.Constants;
 import frc.team5115.robot.Robot;
 
 import edu.wpi.first.wpilibj.SerialPort;
@@ -31,13 +31,13 @@ public class DriveTrain {
 	
 	public DriveTrain(){
 		navx = new AHRS(SPI.Port.kMXP);
-		frontleft = new TalonSRX(Konstanten.FRONT_LEFT_MOTOR_ID);
-		frontright = new TalonSRX(Konstanten.FRONT_RIGHT_MOTOR_ID);
-		backleft = new TalonSRX(Konstanten.BACK_LEFT_MOTOR_ID);
-		backright = new TalonSRX(Konstanten.BACK_RIGHT_MOTOR_ID);
+		frontleft = new TalonSRX(Constants.FRONT_LEFT_MOTOR_ID);
+		frontright = new TalonSRX(Constants.FRONT_RIGHT_MOTOR_ID);
+		backleft = new TalonSRX(Constants.BACK_LEFT_MOTOR_ID);
+		backright = new TalonSRX(Constants.BACK_RIGHT_MOTOR_ID);
 
-		frontright.set(ControlMode.Follower, Konstanten.BACK_RIGHT_MOTOR_ID);
-		frontleft.set(ControlMode.Follower, Konstanten.BACK_LEFT_MOTOR_ID);
+		frontright.set(ControlMode.Follower, Constants.BACK_RIGHT_MOTOR_ID);
+		frontleft.set(ControlMode.Follower, Constants.BACK_LEFT_MOTOR_ID);
 		
 		backright.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 5);
 		backleft.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 5);

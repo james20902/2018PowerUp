@@ -1,6 +1,6 @@
 package frc.team5115.statemachines;
 
-import frc.team5115.Konstanten;
+import frc.team5115.Constants;
 import frc.team5115.robot.InputManager;
 import frc.team5115.robot.Robot;
 
@@ -28,7 +28,7 @@ public class CubeManipulatorManager extends StateMachineBase {
     public void collisionAvoidance() {
         if (Robot.elevator.minHeight() && !Robot.elevator.movingArm) {
             Robot.IM.setState(IntakeManager.GRIP_UP);
-        } else if (Robot.elevator.getAngle() <= Konstanten.INTAKE_HEIGHT) {
+        } else if (Robot.elevator.getAngle() <= Constants.INTAKE_HEIGHT) {
             Robot.IM.setState(IntakeManager.STOW_OPEN);
         } else {
             Robot.IM.setState(IntakeManager.STOW_CLOSED);
@@ -53,8 +53,8 @@ public class CubeManipulatorManager extends StateMachineBase {
                 // ELEVATOR DOWN, INTAKE ACTIVE,CARRIAGE ARMED
                 // IF SENSOR INPUT IS RECOGNIZED, GO TO TRANSIT
                 Robot.CM.setState(CarriageManager.DUMP);
-                Robot.EM.setTarget(Konstanten.RETURN_HEIGHT);
-                armGoal = Konstanten.RETURN_HEIGHT;
+                Robot.EM.setTarget(Constants.RETURN_HEIGHT);
+                armGoal = Constants.RETURN_HEIGHT;
                 updateChildren();
 
                 if (InputManager.bump()) { // bump button
@@ -78,8 +78,8 @@ public class CubeManipulatorManager extends StateMachineBase {
 
             case PASS_TO_INTAKE:
                 // WAITING FOR ARM TO COME DOWN TO PASS CUBE BACK TO INTAKE
-                Robot.EM.setTarget(Konstanten.RETURN_HEIGHT);
-                armGoal = Konstanten.RETURN_HEIGHT;
+                Robot.EM.setTarget(Constants.RETURN_HEIGHT);
+                armGoal = Constants.RETURN_HEIGHT;
                 updateChildren();
 
                 if (Robot.elevator.minHeight()) {
@@ -99,10 +99,10 @@ public class CubeManipulatorManager extends StateMachineBase {
                 // INTAKE DOWN, ARM DOWN
                 updateChildren();
 
-                Robot.EM.setTarget(Konstanten.RETURN_HEIGHT);
+                Robot.EM.setTarget(Constants.RETURN_HEIGHT);
 
                 // don't lower the intake until the delay has passed
-                if (Timer.getFPGATimestamp() >= time + Konstanten.PASSBACK_TIME) {
+                if (Timer.getFPGATimestamp() >= time + Constants.PASSBACK_TIME) {
                     Robot.IM.setState(IntakeManager.GRIP_DOWN);
                 } else {
                     Robot.IM.setState(IntakeManager.GRIP_UP);
@@ -120,22 +120,22 @@ public class CubeManipulatorManager extends StateMachineBase {
                 // if any arm height is detected, pass the cube back and go to that height
                 // (setting armGoal should go into effect once we reach the TRANSIT state again)
                 if (InputManager.moveUp()) {
-                    armGoal = Robot.elevator.getAngle() + Konstanten.ELEVATOR_STEP;
+                    armGoal = Robot.elevator.getAngle() + Constants.ELEVATOR_STEP;
                     setState(PASS_TO_ARM);
                 }
                 if (InputManager.moveDown()) {
                     setState(PASS_TO_ARM);
                 }
                 if (InputManager.scaleHeight()) {
-                    armGoal = Konstanten.SCALE_HEIGHT;
+                    armGoal = Constants.SCALE_HEIGHT;
                     setState(PASS_TO_ARM);
                 }
                 if (InputManager.switchHeight()) {
-                    armGoal = Konstanten.SWITCH_HEIGHT;
+                    armGoal = Constants.SWITCH_HEIGHT;
                     setState(PASS_TO_ARM);
                 }
                 if (InputManager.returnHeight()) {
-                    armGoal = Konstanten.RETURN_HEIGHT;
+                    armGoal = Constants.RETURN_HEIGHT;
                     setState(PASS_TO_ARM);
                 }
                 if (InputManager.intake()) {
@@ -148,7 +148,7 @@ public class CubeManipulatorManager extends StateMachineBase {
                 // IF USER INPUT IS RECOGNIZED, GO TO EMPTY
                 updateChildren();
 
-                Robot.EM.setTarget(Konstanten.RETURN_HEIGHT);
+                Robot.EM.setTarget(Constants.RETURN_HEIGHT);
                 Robot.CM.setState(CarriageManager.DUMP);
 
                 // if arm is down, do the handoff
@@ -178,13 +178,13 @@ public class CubeManipulatorManager extends StateMachineBase {
                 }
 
                 // delay between raising the intake (coming from INTAKE or DRIVIN_AROUND_WIT_DA_INTAKE_DOWN) and gripping the holder
-                if (Timer.getFPGATimestamp() >= time + Konstanten.PASSOFF_TIME) {
+                if (Timer.getFPGATimestamp() >= time + Constants.PASSOFF_TIME) {
                     // grip holder, move arm wherever
                     Robot.CM.setState(CarriageManager.GRAB);
                     Robot.EM.setTarget(armGoal);
                 } else { // delay has not passed
                     // open holder and keep arm down
-                    Robot.EM.setTarget(Konstanten.RETURN_HEIGHT);
+                    Robot.EM.setTarget(Constants.RETURN_HEIGHT);
                     Robot.CM.setState(CarriageManager.DUMP);
                 }
 
@@ -194,11 +194,11 @@ public class CubeManipulatorManager extends StateMachineBase {
                 }
 
                 if ((InputManager.moveUp()) && !Robot.elevator.maxHeight()){
-                    armGoal = Robot.elevator.getAngle() + Konstanten.ELEVATOR_STEP;
+                    armGoal = Robot.elevator.getAngle() + Constants.ELEVATOR_STEP;
                 }
 
                 if (InputManager.moveDown() && !Robot.elevator.minHeight()){
-                    armGoal = Robot.elevator.getAngle() - Konstanten.ELEVATOR_STEP;
+                    armGoal = Robot.elevator.getAngle() - Constants.ELEVATOR_STEP;
                 }
 
                 if (InputManager.eject()) {
@@ -206,15 +206,15 @@ public class CubeManipulatorManager extends StateMachineBase {
                 }
 
                 if (InputManager.switchHeight()) {
-                    armGoal = Konstanten.SWITCH_HEIGHT;
+                    armGoal = Constants.SWITCH_HEIGHT;
                 }
 
                 if (InputManager.scaleHeight()) {
-                    armGoal = Konstanten.SCALE_HEIGHT;
+                    armGoal = Constants.SCALE_HEIGHT;
                 }
 
                 if (InputManager.returnHeight()) {
-                    armGoal = Konstanten.RETURN_HEIGHT;
+                    armGoal = Constants.RETURN_HEIGHT;
                 }
 
                 if (InputManager.spit()) {
@@ -230,7 +230,7 @@ public class CubeManipulatorManager extends StateMachineBase {
 
                 // if we're coming from DRIVIN_AROUND_WIT_DA_INTAKE_DOWN, wait for the ejection to finish
                 // otherwise, time should already be something from much longer ago
-                if (Timer.getFPGATimestamp() >= time + Konstanten.SPIT_DELAY) {
+                if (Timer.getFPGATimestamp() >= time + Constants.SPIT_DELAY) {
                     Robot.IM.setState(IntakeManager.STOW_CLOSED);
                 }
 
@@ -238,28 +238,28 @@ public class CubeManipulatorManager extends StateMachineBase {
 
                 // user input
                 if ((InputManager.moveUp()) && !Robot.elevator.maxHeight()){
-                    armGoal = Robot.elevator.getAngle() + Konstanten.ELEVATOR_STEP;
+                    armGoal = Robot.elevator.getAngle() + Constants.ELEVATOR_STEP;
                 }
 
                 if (InputManager.moveDown() && !Robot.elevator.minHeight()){
-                    armGoal = Robot.elevator.getAngle() - Konstanten.ELEVATOR_STEP;
+                    armGoal = Robot.elevator.getAngle() - Constants.ELEVATOR_STEP;
                 }
 
                 if (InputManager.switchHeight()) {
-                    armGoal = Konstanten.SWITCH_HEIGHT;
+                    armGoal = Constants.SWITCH_HEIGHT;
                 }
 
                 if (InputManager.scaleHeight()) {
-                    armGoal = Konstanten.SCALE_HEIGHT;
+                    armGoal = Constants.SCALE_HEIGHT;
                 }
 
                 if (InputManager.returnHeight()) {
-                    armGoal = Konstanten.RETURN_HEIGHT;
+                    armGoal = Constants.RETURN_HEIGHT;
                 }
 
                 if (InputManager.intake()){
                     time = Timer.getFPGATimestamp();
-                    Robot.EM.setTarget(Konstanten.RETURN_HEIGHT);
+                    Robot.EM.setTarget(Constants.RETURN_HEIGHT);
                     setState(INTAKE);
                 }
 

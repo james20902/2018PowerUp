@@ -1,6 +1,6 @@
 package frc.team5115.auto;
 
-import frc.team5115.Konstanten;
+import frc.team5115.Constants;
 import frc.team5115.PID;
 import frc.team5115.robot.Robot;
 import frc.team5115.auto.AutoDrive;
@@ -93,7 +93,7 @@ public class SwitchAutoCenter extends StateMachineBase {
 				else {
 					drive.startLine(5.5, 0.5);
 				}
-				Robot.EM.setTarget(Konstanten.SWITCH_HEIGHT);
+				Robot.EM.setTarget(Constants.SWITCH_HEIGHT);
 				Robot.EM.setState(ElevatorManager.MOVING_TO);
 				setState(DRIVING2);
 			}
@@ -137,7 +137,7 @@ public class SwitchAutoCenter extends StateMachineBase {
 		case PLACE:
 			updateChildren();
 			Robot.drivetrain.drive(.2, 0);
-			if(Timer.getFPGATimestamp() >= time + Konstanten.SPIT_DELAY)
+			if(Timer.getFPGATimestamp() >= time + Constants.SPIT_DELAY)
 				Robot.drivetrain.drive(0, 0);
 				setState(FINISHED);
 			break;

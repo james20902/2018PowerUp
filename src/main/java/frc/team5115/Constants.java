@@ -1,6 +1,6 @@
 package frc.team5115;
 
-public class Konstanten {
+public class Constants {
     /**
      * This class exists solely to store constant values that will remain the same for the whole robot
      * While referencing this class is not necessary, it is a good organizational habit

@@ -60,7 +60,7 @@ public class PID {
 
         // Do not integrate if the output exceeds max to avoid intergral windup. See youtu.be/fusr9eTceEo
         if (Math.abs(output) <= maxOutput) {
-            errorAccum += error * Konstanten.DELAY;
+            errorAccum += error * Constants.DELAY;
         }
 
         // Do not return a value greater than the maximum, but make sure it's the right sign

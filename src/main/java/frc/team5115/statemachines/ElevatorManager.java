@@ -1,6 +1,6 @@
 package frc.team5115.statemachines;
 
-import frc.team5115.Konstanten;
+import frc.team5115.Constants;
 import frc.team5115.PID;
 import frc.team5115.robot.InputManager;
 import frc.team5115.robot.Robot;
@@ -17,17 +17,17 @@ public class ElevatorManager extends StateMachineBase {
     double output;
 
     public ElevatorManager(){
-        movement = new PID( Konstanten.ARM_KP,	//readability!
-                Konstanten.ARM_KI,	//because this line was too thicc
-                Konstanten.ARM_KD,
-                Konstanten.ELEVATOR_SPEED_SCALE);
+        movement = new PID( Constants.ARM_KP,	//readability!
+                Constants.ARM_KI,	//because this line was too thicc
+                Constants.ARM_KD,
+                Constants.ELEVATOR_SPEED_SCALE);
     }
 
     public void setTarget(double target) {
-        if (target > Konstanten.ELEVATOR_MAX) {
-            targetAngle = Konstanten.ELEVATOR_MAX;
-        } else if (target < Konstanten.ELEVATOR_MIN) {
-            targetAngle = Konstanten.ELEVATOR_MIN;
+        if (target > Constants.ELEVATOR_MAX) {
+            targetAngle = Constants.ELEVATOR_MAX;
+        } else if (target < Constants.ELEVATOR_MIN) {
+            targetAngle = Constants.ELEVATOR_MIN;
         } else {
             targetAngle = target;
         }

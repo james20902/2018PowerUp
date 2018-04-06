@@ -1,6 +1,6 @@
 package frc.team5115.robot;
 
-import frc.team5115.Konstanten;
+import frc.team5115.Constants;
 import frc.team5115.statemachines.CarriageManager;
 import frc.team5115.statemachines.CubeManipulatorManager;
 import frc.team5115.statemachines.Drive;
@@ -228,12 +228,12 @@ public class Robot extends TimedRobot {
         //		}
         //
         //		if (InputManager.getButton(5)) {
-        //			//armTarget += Konstanten.ELEVATOR_STEP;
+        //			//armTarget += Constants.ELEVATOR_STEP;
         //			elevator.move(0.5);
         //			System.out.println("arm up");
         //		}
         //		else if (InputManager.getButton(3)) {
-        //			//armTarget -= Konstanten.ELEVATOR_STEP;
+        //			//armTarget -= Constants.ELEVATOR_STEP;
         //			elevator.move(-0.5);
         //			System.out.println("arm down");
         //		} else {
@@ -241,16 +241,16 @@ public class Robot extends TimedRobot {
         //		}
         //
         //		if (InputManager.getButton(9)) {
-        //			armTarget = Konstanten.RETURN_HEIGHT;
+        //			armTarget = Constants.RETURN_HEIGHT;
         //		}
         //		if (InputManager.getButton(8)) {
-        //			armTarget = Konstanten.SWITCH_HEIGHT;
+        //			armTarget = Constants.SWITCH_HEIGHT;
         //		}
         //		if (InputManager.getButton(7)) {
-        //			armTarget = Konstanten.SCALE_HEIGHT;
+        //			armTarget = Constants.SCALE_HEIGHT;
         //		}
 
-        //		if (InputManager.getButton(Konstanten.KILL)) {
+        //		if (InputManager.getButton(Constants.KILL)) {
         //			dont();
         //		}
     }

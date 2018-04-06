@@ -1,6 +1,6 @@
 package frc.team5115.auto;
 
-import frc.team5115.Konstanten;
+import frc.team5115.Constants;
 import frc.team5115.PID;
 import frc.team5115.robot.Robot;
 import frc.team5115.auto.AutoDrive;
@@ -71,7 +71,7 @@ public class FastSideAuto_Scale extends StateMachineBase {
 			Robot.IM.setState(IntakeManager.STOW_CLOSED);
 			Robot.CM.setState(CarriageManager.GRAB);
 			if(position == scalePosition){
-				Robot.EM.setTarget(Konstanten.SCALE_HEIGHT);
+				Robot.EM.setTarget(Constants.SCALE_HEIGHT);
 				if (position == LEFT) {
 					// total dist, angle, dist to turn, forward speed, turning speed
 					lpt.start(23, 30, 19, 0.75, 0.5);
@@ -80,11 +80,11 @@ public class FastSideAuto_Scale extends StateMachineBase {
 				}
 				setState(SCALE_DRIVING);
 			} else if (position == switchPosition) {
-				Robot.EM.setTarget(Konstanten.SWITCH_HEIGHT);
+				Robot.EM.setTarget(Constants.SWITCH_HEIGHT);
 				drive.startLine(12, 0.75);//17.5
 				setState(DRIVING);
 			} else { //neither are ours, go for auto line
-				Robot.EM.setTarget(Konstanten.RETURN_HEIGHT);
+				Robot.EM.setTarget(Constants.RETURN_HEIGHT);
 				drive.startLine(11.6, 0.75);
 				setState(DRIVING);
 			}
