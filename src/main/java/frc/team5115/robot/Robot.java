@@ -1,6 +1,7 @@
 package frc.team5115.robot;
 
 import frc.team5115.Constants;
+import frc.team5115.Logger;
 import frc.team5115.statemachines.CarriageManager;
 import frc.team5115.statemachines.CubeManipulatorManager;
 import frc.team5115.statemachines.Drive;
@@ -45,6 +46,8 @@ public class Robot extends TimedRobot {
      */
 
     // Define subsystems
+    public static Logger log;
+
     public static DriveTrain drivetrain;
     public static PowerDistributionPanel PDP;
 
@@ -135,6 +138,7 @@ public class Robot extends TimedRobot {
         Timer.delay(1);
         SmartDashboard.putData("Position", positionChooser);
         SmartDashboard.putData("Strategy", strategyChooser);
+        log.Logger();
     }
 
     // Runs once when the autonomous phase of the game starts
@@ -169,6 +173,7 @@ public class Robot extends TimedRobot {
 
         // we think this prevents the drivetrain from being backwards. something to do with the encoders
         drivetrain.drive(0.01, 0);
+        log.Logger();
     }
 
     //Runs periodically while the game is in the autonomous phase

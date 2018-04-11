@@ -1,11 +1,18 @@
 package frc.team5115;
 
+import java.io.File;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Constants {
     /**
      * This class exists solely to store constant values that will remain the same for the whole robot
      * While referencing this class is not necessary, it is a good organizational habit
      * That means it's mandatory because if you don't do it, brian will be sad
      */
+
+    //where to put the log
+
 
     public static final double DELAY = 0.005;
 
