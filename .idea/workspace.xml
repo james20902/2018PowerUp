@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b273726-ad5e-4a95-8978-5d1f8b786c91" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/frc/team5115/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/team5115/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/team5115/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/team5115/robot/Robot.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -22,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Robot.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Robot.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/frc/team5115/robot/Robot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="111" column="41" lean-forward="true" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="41" />
+            <state relative-caret-position="-1094">
+              <caret line="174" column="34" selection-start-line="174" selection-start-column="34" selection-end-line="174" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -34,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Logger.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Logger.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/frc/team5115/Logger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="85" column="30" lean-forward="true" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
+            <state relative-caret-position="246">
+              <caret line="83" column="36" lean-forward="true" selection-start-line="83" selection-start-column="36" selection-end-line="83" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,7 +134,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find />
+      <find>package com.team5115.</find>
       <find>com.team5115.</find>
       <find>com.team5115</find>
       <find>line</find>
@@ -145,7 +144,7 @@
       <find>trackername</find>
     </findStrings>
     <replaceStrings>
-      <replace />
+      <replace>package frc.team5115.</replace>
       <replace>frc.team5115.</replace>
       <replace>frc.team5115</replace>
       <replace>Constants</replace>
@@ -596,10 +595,10 @@
         <option value="$PROJECT_DIR$/src/main/java/frc/team5115/auto/LinePlusTurn.java" />
         <option value="$PROJECT_DIR$/src/main/java/frc/team5115/auto/DriveForwardSome.java" />
         <option value="$PROJECT_DIR$/src/main/java/frc/team5115/auto/Auto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/frc/team5115/robot/Robot.java" />
         <option value="$PROJECT_DIR$/src/main/java/frc/team5115/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/frc/team5115/systems/DriveTrain.java" />
         <option value="$PROJECT_DIR$/src/main/java/frc/team5115/Logger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/frc/team5115/robot/Robot.java" />
       </list>
     </option>
   </component>
@@ -785,7 +784,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
+    <frame x="701" y="88" width="1400" height="919" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -800,7 +799,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13515624" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="FRC" order="7" weight="0.329602" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1177,16 +1176,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/frc/team5115/robot/Robot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="111" column="41" lean-forward="true" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/frc/team5115/statemachines/StateMachineBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1230,8 +1219,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/frc/team5115/Logger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="85" column="30" lean-forward="true" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
+        <state relative-caret-position="246">
+          <caret line="83" column="36" lean-forward="true" selection-start-line="83" selection-start-column="36" selection-end-line="83" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/frc/team5115/robot/Robot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1094">
+          <caret line="174" column="34" selection-start-line="174" selection-start-column="34" selection-end-line="174" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

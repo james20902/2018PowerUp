@@ -173,7 +173,6 @@ public class Robot extends TimedRobot {
 
         // we think this prevents the drivetrain from being backwards. something to do with the encoders
         drivetrain.drive(0.01, 0);
-        log.Logger();
     }
 
     //Runs periodically while the game is in the autonomous phase
