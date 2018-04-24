@@ -126,4 +126,18 @@ public class DriveTrain {
 		navx.reset(); //takes some time
 	}
 
+	public double voltageFL(){
+		return frontleft.getMotorOutputVoltage();
+	}
+	public double voltageFR(){
+        return frontright.getMotorOutputVoltage();
+	}
+	public double voltageBL(){
+        return backleft.getMotorOutputVoltage();
+	}
+	public double voltageBR(){
+        return backright.getMotorOutputVoltage();
+	}
+
+
 }
