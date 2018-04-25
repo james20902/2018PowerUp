@@ -2,6 +2,7 @@ package frc.team5115.robot;
 
 import frc.team5115.Constants;
 import frc.team5115.Logger;
+import frc.team5115.UDPClient;
 import frc.team5115.statemachines.CarriageManager;
 import frc.team5115.statemachines.CubeManipulatorManager;
 import frc.team5115.statemachines.Drive;
@@ -69,7 +70,7 @@ public class Robot extends TimedRobot {
     public static CarriageManager CM;
     public static Elevator elevator;
     public static ElevatorManager EM;
-    public static NetworkTable NT;
+    public static UDPClient udpclient;
 
     public String gameData;
 
@@ -111,6 +112,8 @@ public class Robot extends TimedRobot {
         CMM = new CubeManipulatorManager();
         ds = DriverStation.getInstance();
 
+        udpclient = new UDPClient("10.51.15.30", 5803);
+        udpclient.start();
         // make the position chooser for smartdashboard
         // this stuff may be different for shuffleboard
         positionChooser = new SendableChooser();
@@ -273,6 +276,7 @@ public class Robot extends TimedRobot {
         drivetrain.drive(0,0);
         CMM.setState(CubeManipulatorManager.STOP);
         EM.setState(ElevatorManager.STOP);
+        System.out.println(udpclient.getLastResponse());
     }
 
 }
